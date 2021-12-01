@@ -14,19 +14,16 @@ def run_sweep(input_data: pathlib.Path, window_size: int) -> int:
     return total number of increases
     """
     total_increases = 0
-    previous_sum = None
     window = deque()
 
     with input_data.open("r", encoding="utf-8") as input_lines:
         for line in input_lines:
             depth = int(line.rstrip())
-            window.append(depth)
             if len(window) == window_size:
-                cur_window_sum = sum(window)
-                if previous_sum and (cur_window_sum - previous_sum) > 0:
+                prev = window.popleft()
+                if depth > prev:
                     total_increases += 1
-                previous_sum = cur_window_sum
-                window.popleft()
+            window.append(depth)
 
     return total_increases
 
