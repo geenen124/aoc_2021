@@ -6,8 +6,10 @@ def run_sweep(input_data: pathlib.Path) -> int:
     """
     Given an input data file, this checks the number of 
     depth measurements that are larger than the previous measurement.
-    @input_data path to input data file
-    @return total number of increases
+
+    input_data: path to input data file
+
+    returns total number of increases
     """
     total_increases = 0
     previous_depth = None

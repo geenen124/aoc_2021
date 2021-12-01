@@ -7,9 +7,11 @@ def run_sweep(input_data: pathlib.Path, window_size: int) -> int:
     """
     Given an input data file, this checks the number of sliding windows of
     depth measurements that are larger than the previous sliding window
-    @input_data path to input data file
-    @window_size size of the sliding window to check
-    @return total number of increases
+
+    input_data: path to input data file
+    window_size: size of the sliding window to check
+
+    return total number of increases
     """
     total_increases = 0
     previous_sum = None
