@@ -15,18 +15,12 @@ def simulate_lanternfish(input_data: pathlib.Path, num_days: int) -> int:
     """
     lantern_fish_buckets = parse_lanternfish_input(input_data)
 
+    current_0 = 0
+
     for day in range(num_days):
-        to_add = lantern_fish_buckets[0]
-
-        # shift everything left
-        cur_bucket = lantern_fish_buckets[-1]
-        for i in range(len(lantern_fish_buckets) - 2, -1, -1):
-            tmp = lantern_fish_buckets[i]
-            lantern_fish_buckets[i] = cur_bucket
-            cur_bucket = tmp
-
-        lantern_fish_buckets[6] += to_add
-        lantern_fish_buckets[8] = to_add
+        next_6 = (current_0 - 2) % len(lantern_fish_buckets)
+        lantern_fish_buckets[next_6] += lantern_fish_buckets[current_0]
+        current_0 = (current_0 + 1) % len(lantern_fish_buckets)
 
     return sum(lantern_fish_buckets)
 
