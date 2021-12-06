@@ -7,7 +7,6 @@ from day6.parse import parse_lanternfish_input
 def simulate_lanternfish(input_data: pathlib.Path, num_days: int) -> int:
     """
     Given an input data file, this finds the number of lanternfish that exist after :num_days!
-    lines that overlap including diagonal lines!
 
     input_data: path to input data file
     num_days: number of days that will pass
